@@ -22,6 +22,8 @@ abstract public class EnemyAIBase : MonoBehaviour
     public bool bPlayerInRange = false;
 
     public Rigidbody2D rb2d;
+
+    public Animator Animator;
     // Start is called before the first frame update
     void Start()
     {

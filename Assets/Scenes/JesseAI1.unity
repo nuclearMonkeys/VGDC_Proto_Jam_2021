@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 1039675067}
   - component: {fileID: 1039675066}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: JesseDummyPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,6 +261,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -322,24 +323,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3032899219245050324, guid: d00079295645b8b45bde028f435e181b, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b540af10672971248aae3895d19b0cb8, type: 3}
-    - target: {fileID: 3032899219245050324, guid: d00079295645b8b45bde028f435e181b, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3032899219672730410, guid: d00079295645b8b45bde028f435e181b, type: 3}
       propertyPath: m_Name
-      value: EnemyAIBase
+      value: EnemyAI1
       objectReference: {fileID: 0}
-    - target: {fileID: 3032899219672730421, guid: d00079295645b8b45bde028f435e181b, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 873e2708d85841c4c818f0de227a1e90, type: 3}
-    - target: {fileID: 3032899219672730421, guid: d00079295645b8b45bde028f435e181b, type: 3}
-      propertyPath: m_WasSpriteAssigned
+    - target: {fileID: 3032899219672730423, guid: d00079295645b8b45bde028f435e181b, type: 3}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3032899219672730423, guid: d00079295645b8b45bde028f435e181b, type: 3}
@@ -355,6 +344,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3032899219672730423, guid: d00079295645b8b45bde028f435e181b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032899219672730423, guid: d00079295645b8b45bde028f435e181b, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -365,14 +358,6 @@ PrefabInstance:
     - target: {fileID: 3032899219672730423, guid: d00079295645b8b45bde028f435e181b, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032899219672730423, guid: d00079295645b8b45bde028f435e181b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3032899219672730423, guid: d00079295645b8b45bde028f435e181b, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3032899219672730423, guid: d00079295645b8b45bde028f435e181b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
