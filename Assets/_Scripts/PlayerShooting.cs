@@ -8,12 +8,16 @@ public class PlayerShooting : MonoBehaviour
     public Transform firingPoint;
     public GameObject playerSword;
     public BaseBullet bulletPrefab;
+    public float slashComboLimit = 1;
+    public float fireRate = 0.7f;
+    public float slashRate = 0.7f;
     private Vector2 mousePosition;
     private Vector2 firingOrigin;
     
     private Rigidbody2D body;
     private RaycastHit2D hit;
     private bool canFire = true;
+    private bool canSlash = true;
 
     // private enemyBehavior damaging;
     // private weaponInfo useClip;
@@ -30,24 +34,13 @@ public class PlayerShooting : MonoBehaviour
     public void Fire() 
     {
         if (canFire) 
-        {
             StartCoroutine(fireEnumerator());
-        }
     }
 
     public void Slash() 
     {
-        if (canFire)
+        if (canSlash)
             StartCoroutine(slashEnumerator());
-    }
-
-    IEnumerator slashEnumerator() 
-    {
-        playerSword.SetActive(true);
-        canFire = false;
-        yield return new WaitForSeconds(0.5f);
-        canFire = true;
-        playerSword.SetActive(false);
     }
 
     IEnumerator fireEnumerator() 
@@ -55,7 +48,16 @@ public class PlayerShooting : MonoBehaviour
         BaseBullet bullet = Instantiate(bulletPrefab, firingPoint);
         bullet.transform.SetParent(null);
         canFire = false;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(fireRate);
         canFire = true;
+    }
+
+    IEnumerator slashEnumerator() 
+    {
+        playerSword.SetActive(true);
+        canSlash = false;
+        yield return new WaitForSeconds(slashRate);
+        canSlash = true;
+        playerSword.SetActive(false);
     }
 }
