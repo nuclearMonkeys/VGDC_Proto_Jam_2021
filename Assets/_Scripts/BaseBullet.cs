@@ -30,7 +30,7 @@ public class BaseBullet : MonoBehaviour
         if (other.CompareTag("Enemy")) 
         {
             // Do damage to enemy
-            
+            other.GetComponent<EnemyAIBase>().Damage(1);
         }
         if (other.CompareTag("Player"))
             return;
