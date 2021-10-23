@@ -31,8 +31,7 @@ public class PlayerMovement : MonoBehaviour
             playerX = Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime;
         }
 
-        body.velocity = new Vector2(playerX * moveSpeed, playerY * moveSpeed);
-        print(playerY);
-        // print();
+        body.velocity = new Vector2(playerX , playerY).normalized * moveSpeed;
+
     }
 }
