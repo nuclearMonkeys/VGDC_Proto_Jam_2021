@@ -35,4 +35,9 @@ abstract public class EnemyAIBase : MonoBehaviour
     {
         
     }
+
+    public void Damage(int Amount)
+    {
+        Health -= Amount;
+    }
 }
