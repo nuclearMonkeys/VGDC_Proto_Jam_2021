@@ -361,6 +361,10 @@ MonoBehaviour:
   firingPoint: {fileID: 1943282218}
   playerSword: {fileID: 2023722534}
   bulletPrefab: {fileID: 3756544954270718351, guid: e9ac60fea56715e92928cd9511044a58, type: 3}
+  slashComboLimit: 2
+  fireRate: 0.7
+  slashComboCooldown: 0.7
+  slashRate: 0.3
 --- !u!61 &1775241814
 BoxCollider2D:
   m_ObjectHideFlags: 0
