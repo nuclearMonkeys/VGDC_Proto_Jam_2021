@@ -2,38 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAILevel3 : EnemyAIBase
+public class EnemyAILevel4 : EnemyAIBase
 {
     public GameObject MeleeCollider;
     public List<GameObject> TeleportPoints = new List<GameObject>();
-    int TeleportCount = 0;
-    //public int BulletCount = 10;
+    public int targetIndex = 1;
+    int prevIndex = 0;
+    public GameObject EnemyBulletRing;
+    public bool bDoMelee = false;
     // Start is called before the first frame update
     void Start()
     {
-        TeleportCount = Random.Range(2, 4);
         rb2d = GetComponent<Rigidbody2D>();
+        MakeNewPoint();
+        MoveToPoint();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (Mathf.Abs(Vector3.Distance(TeleportPoints[targetIndex].transform.position, transform.position)) <= 0.5f)
+        {
+            MakeNewPoint();
+           
+        }
+        MoveToPoint();
+        setRotation();
         //if player close
         if (currentAttackTime >= attackInterval)
         {
+            
+
             currentAttackTime = 0.0f;
-            if (TeleportCount <=0)
+            if (bDoMelee)
             {
-                //Debug.Log("Hello");
-                
                 MeleeAttack();
-                // do melee
+                
             }
             else
             {
                 // do range
                 RangeAttack();
             }
+
+           
         }
         currentAttackTime += Time.deltaTime;
     }
@@ -81,28 +94,6 @@ public class EnemyAILevel3 : EnemyAIBase
         MeleeCollider.SetActive(enabler);
     }
 
-    void TeleportToPlayer()
-    {
-        transform.position = Player.transform.position - Player.transform.right * -0.7f;
-
-        setRotation();
-    }
-
-
-    void ChargeAtPlayer()
-    {
-        Vector3 targ = Player.transform.position;
-        targ.z = 0f;
-
-        Vector3 objectPos = transform.position;
-        targ.x = targ.x - objectPos.x;
-        targ.y = targ.y - objectPos.y;
-
-        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-        rb2d.velocity = transform.right * EnemySpeed;
-    }
     void EndMelee()
     {
         bIsMeleeing = false;
@@ -117,19 +108,19 @@ public class EnemyAILevel3 : EnemyAIBase
 
     void BeginMelee()
     {
-        bIsMeleeing = true;
+       // bIsMeleeing = true;
     }
 
     void BeginRange()
     {
-        bIsRanging = true;
+        //bIsRanging = true;
     }
 
 
     IEnumerator IERangeAttack()
     {
-        Animator.Play("TeleportRange");
-        
+        Animator.Play("AimAttackAI4");
+        bIsRanging = true;
         while (bIsRanging)
         {
             yield return null;
@@ -142,9 +133,10 @@ public class EnemyAILevel3 : EnemyAIBase
 
     IEnumerator IEMeleeAttack()
     {
-        TeleportCount = Random.Range(2, 4);
-        Animator.Play("TeleportCharge");
+        //TeleportCount = Random.Range(2, 4);
+        Animator.Play("RingAttackAI4");
         //Animator.
+        bIsMeleeing = true;
         while (bIsMeleeing)
         {
             yield return null;
@@ -152,6 +144,8 @@ public class EnemyAILevel3 : EnemyAIBase
 
         bIsMeleeing = false;
         currentAttackTime = 0.0f;
+        MakeNewPoint();
+        MoveToPoint();
         yield return null;
     }
 
@@ -169,33 +163,58 @@ public class EnemyAILevel3 : EnemyAIBase
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-    void TeleportToPoint()
+    void MoveToPoint()
     {
         //leave behind particle
 
         //make bullet ring
 
-        GameObject Point = TeleportPoints[Random.Range(0, TeleportPoints.Count - 1)];
+       
 
-        transform.position = Point.transform.position;
+        Vector3 Dir = (TeleportPoints[targetIndex].transform.position - transform.position);
+        Dir.Normalize();
 
-        TeleportCount -= 1;
+        if (targetIndex == 0)
+        {
+            rb2d.velocity = Dir * EnemySpeed * 1.25f;
+        }
+        else
+        {
+            rb2d.velocity = Dir * EnemySpeed;
+        }
+
+        //TeleportCount -= 1;
+    }
+
+    void MakeNewPoint()
+    {
+        prevIndex = targetIndex;
+        targetIndex = Random.Range(0, TeleportPoints.Count - 1);
+
+        //bIsMeleeing = false;
+        //GameObject Point = TeleportPoints[targetIndex];
     }
 
     void fireBulletRing()
     {
-        int BulletCount = Random.Range(7,10);
+        int BulletCount = Random.Range(7, 10);
 
 
 
 
-        setRotation();
+        
         for (int i = 0; i < BulletCount; i++)
         {
-            Quaternion Rot = Quaternion.Euler(0, 0, (360/BulletCount) * i);
-            Instantiate(EnemyBullet, transform.position, Rot);
+            Quaternion Rot = Quaternion.Euler(0, 0, (360 / BulletCount) * i);
+            Instantiate(EnemyBulletRing, transform.position, Rot);
         }
 
 
+    }
+
+    void FireBullet()
+    {
+        setRotation();
+        Instantiate(EnemyBullet, transform.position, Quaternion.identity);
     }
 }
