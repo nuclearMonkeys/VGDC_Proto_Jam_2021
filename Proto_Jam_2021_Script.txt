@@ -1,0 +1,83 @@
+[]: Denotes different levels of the game
+# : Denotes character dialogue
+(): Denotes dialogue at win / lose conditions (all of them are spoken by the boss, Vok)
+
+[INTRO]
+# Player: Some time ago, my eldest cousin, Vok Tregor, decided to take up arms and turn to a path of destruction.
+
+# Player: I must stop him, for only a Tregor can defeat another Tregor.
+
+[LEVEL 1]
+# Player: Vok! It is my destiny to destroy you!
+
+# Vok: MWAHAHAHAHA! Oh really? Then perhaps you'll finally give me an interesting fight!
+
+(LOSE): Ha! Are you sure your destiny wasn't TO DIE?
+
+(WIN): Agh! Not like this!
+
+[LEVEL 2]
+# Vok: Aha! We meet again, cousin!
+
+# Player: What? I thought I already killed you!
+
+# Vok: Ha! You really thought I would go down that easily? In that case, I have more surprises for you!
+
+(LOSE): ha! Your dead body lies motionless on the floor once again!
+
+(WIN): No! Not a second time! Arrrrgh!
+
+[LEVEL 3]
+# Vok: I see that this is becoming a regular occurrence, cousin!
+
+# Player: Oh come on! How many times do I have to kill you?
+
+# Vok: Mwhahaha! Why don't we find out now?
+
+(LOSE): Hm, your death doesn't quite have the luster it once had...
+
+(WIN): Hmph, it was bound to happen at some point.
+
+[LEVEL 4]
+
+# Vok: Oh, it's you again. How many times are you going to fight me?
+
+# Player: I will fight you until you die!
+
+# Vok: ...I see.
+
+(LOSE): Aren't you getting tired of this? You've thrown yourself at me so many times already...
+
+(WIN): I'm getting older, so why aren't you?
+
+[LEVEL 5]
+
+# Vok: You know, I stopped trying to destroy this city a long time ago.
+
+# Vok: It used to mean something to me, but now I'm not quite sure.
+
+# Vok: Knowing this, why are you still coming to me?
+
+# Player: I don't know. But I can't leave this unfinished.
+
+# Vok: Hm. Well then, let's get it over with, shall we?
+
+(LOSE): Come on, I've seen you do better than this before.
+
+(WIN): Ah, I think... this is it.
+
+[ENDING]
+
+# Vok: Well, this is it for me... I think.
+
+# Vok: I've grown too old from these battles.
+
+# Vok: But I suppose something stopped me from abandoning these fights completely.
+
+# Vok: You felt it too, didn't you? That in the end, one of us had to die.
+
+# Vok: I suppose... I was going to die no matter what I did.
+
+# Vok: And now that you've fulfilled your destiny..
+
+# Vok: What are you going to do now?
