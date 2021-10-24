@@ -24,6 +24,7 @@ abstract public class EnemyAIBase : MonoBehaviour
     public Rigidbody2D rb2d;
 
     public Animator Animator;
+    public GameObject BloodPS;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,7 @@ abstract public class EnemyAIBase : MonoBehaviour
     public void Damage(int Amount)
     {
         AudioManager.instance.Play("impact");
+        BloodPS.GetComponent<ParticleSystem>().Play();
         Health -= Amount;
         if (Health <= 0)
         {
