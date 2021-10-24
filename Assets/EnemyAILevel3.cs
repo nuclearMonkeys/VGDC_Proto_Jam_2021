@@ -104,7 +104,7 @@ public class EnemyAILevel3 : EnemyAIBase
             float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-            rb2d.velocity = transform.right * EnemySpeed;
+            rb2d.velocity = transform.right * EnemySpeed * 1.5f;
         }
     }
     void EndMelee()
