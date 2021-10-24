@@ -36,6 +36,14 @@ public class AudioManager : MonoBehaviour
 		Play("Menu");
 	}
 	
+    
+    public void SetVolume (float volume)
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.volume = volume;
+        }
+    }
 
 	public void Play(string name)
 	{
