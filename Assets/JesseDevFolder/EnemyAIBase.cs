@@ -48,5 +48,20 @@ abstract public class EnemyAIBase : MonoBehaviour
     public void Kill()
     {
         //do shit
+
+        EnemyBullet[] bullets = FindObjectsOfType<EnemyBullet>();
+        EnemyBulletRing[] bulletRings = FindObjectsOfType<EnemyBulletRing>();
+
+        foreach (EnemyBullet b in bullets)
+        {
+            Destroy(b.gameObject);
+        }
+
+        foreach (EnemyBulletRing br in bulletRings)
+        {
+            Destroy(br.gameObject);
+        }
+
+        Destroy(gameObject);
     }
 }
