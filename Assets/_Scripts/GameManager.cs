@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -32,5 +33,30 @@ public class GameManager : MonoBehaviour
 	{
 
 	}
+    public void OnPlayerDeath()
+	{
+
+        //when player dies  display the lose condition dialogue according to sceneIndex
+        DialogueManager dialogue = GameObject.Find("Canvas").GetComponent<DialogueManager>();
+
+        if (dialogue != null)
+        {
+            dialogue.GetConditionLines(SceneManager.GetActiveScene().buildIndex, false);
+        }
+        else
+            Debug.LogWarning("DialogueManager is null");
+	}
+    public void OnEnemyDeath(int sceneIndex)
+	{
+        DialogueManager dialogue = GameObject.Find("Canvas").GetComponent<DialogueManager>();
+
+        if (dialogue != null)
+        {
+            dialogue.GetConditionLines(SceneManager.GetActiveScene().buildIndex, true);
+        }
+        else
+            Debug.LogWarning("DialogueManager is null");
+        //play the UI dialogue for win condition
+    }
     
 }
