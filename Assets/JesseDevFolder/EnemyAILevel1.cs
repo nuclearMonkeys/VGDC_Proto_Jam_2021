@@ -118,6 +118,7 @@ public class EnemyAILevel1 : EnemyAIBase
         }
 
         bIsMeleeing = false;
+        enableColliderFalse();
         currentAttackTime = 0.0f;
         yield return null;
     }
