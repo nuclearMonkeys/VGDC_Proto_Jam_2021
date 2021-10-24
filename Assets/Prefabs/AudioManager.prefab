@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1837428628332781300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3299155250828657093}
+  - component: {fileID: 8630439792924775542}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3299155250828657093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837428628332781300}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.30284432, y: 0.32838464, z: -0.2204195}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8630439792924775542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837428628332781300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4063870aea067118f870c8aa98dd2a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: level-1
+    clip: {fileID: 8300000, guid: b17a23a377aabab46b1e74db613961ff, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 0
+    loop: 0
+  - name: level-2
+    clip: {fileID: 8300000, guid: 88ad28c926800604e8be71b7db633f38, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 0.74
+    loop: 0
+  - name: level-3
+    clip: {fileID: 8300000, guid: 4ae0fc035fb9e1148a487693f3abec45, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 0.7
+    loop: 0
+  - name: level-4
+    clip: {fileID: 8300000, guid: c3bb4b7b450aa6b4d8572be53b5d6284, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 0.77
+    loop: 0
+  - name: level-5
+    clip: {fileID: 8300000, guid: 944392c319f1d1046b4a54d510b5cfa3, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 0.79
+    loop: 0
+  - name: Menu
+    clip: {fileID: 8300000, guid: 980ceb63612a82849a37661aaec6e12b, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 0.79
+    loop: 0
+  - name: sword-swing1
+    clip: {fileID: 8300000, guid: 7920c1db94a4f4048806e0e5c473cd52, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 0.79
+    loop: 0
+  - name: sword-swing2
+    clip: {fileID: 8300000, guid: 940c29a1b0faca14093a8c5719188002, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 0.79
+    loop: 0
+  - name: sword-swing3
+    clip: {fileID: 8300000, guid: 6510285fbff049d4386500f30afd4a40, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 0.79
+    loop: 0
+  - name: blaster
+    clip: {fileID: 8300000, guid: bf9732e5ee4b117479e20a7c6d5476e2, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 0.79
+    loop: 0
