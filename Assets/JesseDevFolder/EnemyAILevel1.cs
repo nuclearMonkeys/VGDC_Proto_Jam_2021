@@ -7,6 +7,8 @@ public class EnemyAILevel1 : EnemyAIBase
 
     public GameObject MeleeCollider;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,7 @@ public class EnemyAILevel1 : EnemyAIBase
             }
         }
         currentAttackTime += Time.deltaTime;
-        
+
 
 
     }
@@ -42,6 +44,8 @@ public class EnemyAILevel1 : EnemyAIBase
     {
         if (!bIsRanging && !bIsMeleeing && !bPlayerInRange)
         {
+            Animator.Play("WalkAnim");
+
             Vector3 targ = Player.transform.position;
             targ.z = 0f;
 
@@ -63,7 +67,7 @@ public class EnemyAILevel1 : EnemyAIBase
     {
         if (!bIsRanging && !bIsMeleeing)
         {
-            bIsRanging = true;
+            //bIsRanging = true;
             StartCoroutine(IERangeAttack());
             //wait a bit
 
@@ -76,7 +80,7 @@ public class EnemyAILevel1 : EnemyAIBase
     {
         if (!bIsRanging && !bIsMeleeing)
         {
-            bIsMeleeing = true;
+            //bIsMeleeing = true;
             StartCoroutine(IEMeleeAttack());
             //wait a bit
 
@@ -88,24 +92,92 @@ public class EnemyAILevel1 : EnemyAIBase
 
     IEnumerator IERangeAttack()
     {
-        //instantiate bullet
-        yield return new WaitForSeconds(0.25f);
-        //set bullet speed;
-        Instantiate(EnemyBullet, transform.position, Quaternion.identity);
+        Animator.Play("RangeAnim");
+        while (bIsRanging)
+        {
+            yield return null;
+        }
 
-        yield return new WaitForSeconds(0.25f);
         bIsRanging = false;
+        currentAttackTime = 0.0f;
         yield return null;
     }
 
     IEnumerator IEMeleeAttack()
     {
-        yield return new WaitForSeconds(1.0f);
-        MeleeCollider.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        MeleeCollider.SetActive(false);
-        yield return new WaitForSeconds(1.0f);
+
+        Animator.Play("MeleeAnim");
+        //Animator.
+        while (bIsMeleeing)
+        {
+            yield return null;
+        }
+
         bIsMeleeing = false;
+        currentAttackTime = 0.0f;
         yield return null;
+    }
+
+    void setRotation()
+    {
+        // rotation code
+        Vector3 targ = Player.transform.position;
+        targ.z = 0f;
+
+        Vector3 objectPos = transform.position;
+        targ.x = targ.x - objectPos.x;
+        targ.y = targ.y - objectPos.y;
+
+        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    }
+
+    void enableColliderTrue()
+    {
+        enableMeleeCollider(true);
+    }
+
+    void enableColliderFalse()
+    {
+        enableMeleeCollider(false);
+    }
+
+    void enableMeleeCollider(bool enabler)
+    {
+        MeleeCollider.SetActive(enabler);
+    }
+
+    void TeleportToPlayer()
+    {
+        transform.position = Player.transform.position - Player.transform.right * -0.7f;
+
+        setRotation();
+    }
+
+    void EndMelee()
+    {
+        bIsMeleeing = false;
+    }
+
+    void EndRange()
+    {
+        bIsRanging = false;
+    }
+
+
+    void BeginMelee()
+    {
+        bIsMeleeing = true;
+    }
+
+    void BeginRange()
+    {
+        bIsRanging = true;
+    }
+
+    void FireBullet()
+    {
+        setRotation();
+        Instantiate(EnemyBullet, transform.position, Quaternion.identity);
     }
 }
