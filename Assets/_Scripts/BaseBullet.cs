@@ -27,9 +27,11 @@ public class BaseBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
+        //Debug.Log(other.gameObject.name);
         if (other.CompareTag("Enemy")) 
         {
             // Do damage to enemy
+            
             other.GetComponent<EnemyAIBase>().Damage(1);
         }
         if (other.CompareTag("Player"))

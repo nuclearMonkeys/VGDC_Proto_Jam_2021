@@ -27,7 +27,9 @@ public class EnemyBulletRing : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+
     }
 }

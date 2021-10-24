@@ -49,58 +49,58 @@ MonoBehaviour:
     source: {fileID: 0}
     volume: 1
     pitch: 0
-    loop: 1
+    loop: 0
   - name: level-2
     clip: {fileID: 8300000, guid: 88ad28c926800604e8be71b7db633f38, type: 3}
     source: {fileID: 0}
     volume: 1
     pitch: 0.74
-    loop: 1
+    loop: 0
   - name: level-3
     clip: {fileID: 8300000, guid: 4ae0fc035fb9e1148a487693f3abec45, type: 3}
     source: {fileID: 0}
     volume: 1
     pitch: 0.7
-    loop: 1
+    loop: 0
   - name: level-4
     clip: {fileID: 8300000, guid: c3bb4b7b450aa6b4d8572be53b5d6284, type: 3}
     source: {fileID: 0}
     volume: 1
     pitch: 0.77
-    loop: 1
+    loop: 0
   - name: level-5
     clip: {fileID: 8300000, guid: 944392c319f1d1046b4a54d510b5cfa3, type: 3}
     source: {fileID: 0}
     volume: 1
     pitch: 0.79
-    loop: 1
+    loop: 0
   - name: Menu
     clip: {fileID: 8300000, guid: 980ceb63612a82849a37661aaec6e12b, type: 3}
     source: {fileID: 0}
     volume: 1
     pitch: 0.79
-    loop: 1
+    loop: 0
   - name: sword-swing1
     clip: {fileID: 8300000, guid: 7920c1db94a4f4048806e0e5c473cd52, type: 3}
     source: {fileID: 0}
     volume: 1
     pitch: 0.79
-    loop: 1
+    loop: 0
   - name: sword-swing2
     clip: {fileID: 8300000, guid: 940c29a1b0faca14093a8c5719188002, type: 3}
     source: {fileID: 0}
     volume: 1
     pitch: 0.79
-    loop: 1
+    loop: 0
   - name: sword-swing3
     clip: {fileID: 8300000, guid: 6510285fbff049d4386500f30afd4a40, type: 3}
     source: {fileID: 0}
     volume: 1
     pitch: 0.79
-    loop: 1
+    loop: 0
   - name: blaster
     clip: {fileID: 8300000, guid: bf9732e5ee4b117479e20a7c6d5476e2, type: 3}
     source: {fileID: 0}
     volume: 1
     pitch: 0.79
-    loop: 1
+    loop: 0
