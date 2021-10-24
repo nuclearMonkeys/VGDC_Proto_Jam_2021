@@ -53,7 +53,7 @@ public class PlayerShooting : MonoBehaviour
 
     IEnumerator fireEnumerator() 
     {
-        AudioManager.instance.Play("blaster.mp3");
+        AudioManager.instance.Play("blaster");
         BaseBullet bullet = Instantiate(bulletPrefab, firingPoint);
         bullet.transform.SetParent(null);
         canFire = false;
