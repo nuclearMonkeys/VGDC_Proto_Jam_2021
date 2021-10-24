@@ -38,6 +38,7 @@ abstract public class EnemyAIBase : MonoBehaviour
 
     public void Damage(int Amount)
     {
+        AudioManager.instance.Play("impact");
         Health -= Amount;
         if (Health <= 0)
         {
