@@ -35,6 +35,7 @@ public class AudioManager : MonoBehaviour
 	{
 		Play("Menu");
 	}
+	
 
 	public void Play(string name)
 	{
@@ -45,6 +46,10 @@ public class AudioManager : MonoBehaviour
 
 		if (s != null)
 			s.source.Play();
+		else
+			Debug.LogWarning("audioclip " + name + " is NULL");
+
+		Debug.Log("playing " + name + "...");
 	}
 	public void Stop(string name)
 	{
@@ -52,6 +57,8 @@ public class AudioManager : MonoBehaviour
 
 		if (s != null)
 			s.source.Stop();
+		else
+			Debug.LogWarning("audioclip " + name + " is NULL");
 	}
 	
 
