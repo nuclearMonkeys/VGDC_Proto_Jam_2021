@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 	{
 
         //when player dies  display the lose condition dialogue according to sceneIndex
-        DialogueManager dialogue = GameObject.Find("Canvas").GetComponent<DialogueManager>();
+        DialogueManager dialogue = GameObject.FindWithTag("Canvas").GetComponent<DialogueManager>();
 
         if (dialogue != null)
         {
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
 	}
     public void OnEnemyDeath(int sceneIndex)
 	{
-        DialogueManager dialogue = GameObject.Find("Canvas").GetComponent<DialogueManager>();
+        DialogueManager dialogue = GameObject.FindWithTag("Canvas").GetComponent<DialogueManager>();
 
         if (dialogue != null)
         {
