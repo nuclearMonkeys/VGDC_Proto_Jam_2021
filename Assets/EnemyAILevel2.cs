@@ -157,9 +157,13 @@ public class EnemyAILevel2 : EnemyAIBase
 
     void TeleportToPlayer()
     {
-        transform.position = Player.transform.position - Player.transform.right * -0.7f;
+        if (Player)
+        {
+            transform.position = Player.transform.position - Player.transform.right * -0.7f;
 
-        setRotation();
+            setRotation();
+        }
+
     }
 
     void EndMelee()
