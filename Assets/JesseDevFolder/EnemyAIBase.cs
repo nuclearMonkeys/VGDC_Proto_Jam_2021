@@ -39,5 +39,14 @@ abstract public class EnemyAIBase : MonoBehaviour
     public void Damage(int Amount)
     {
         Health -= Amount;
+        if (Health <= 0)
+        {
+            Kill();
+        }
+    }
+
+    public void Kill()
+    {
+        //do shit
     }
 }

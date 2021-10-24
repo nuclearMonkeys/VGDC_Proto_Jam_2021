@@ -178,13 +178,69 @@ PrefabInstance:
       propertyPath: m_Name
       value: JesseDummyPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 1976293439102369053, guid: c360f6bbf8363a747b5f5c6de6157403, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c360f6bbf8363a747b5f5c6de6157403, type: 3}
---- !u!1 &375484439 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1976293439102369053, guid: c360f6bbf8363a747b5f5c6de6157403, type: 3}
-  m_PrefabInstance: {fileID: 375484438}
-  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &492801804
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1304477088212350155, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
 --- !u!1 &517304961
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +324,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1292261786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304477088212350155, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+  m_PrefabInstance: {fileID: 492801804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4542573447639487028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c0112c4cfe3b549be2de73776940b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 375484439}
+  Player: {fileID: 1292261786}
 --- !u!1 &6489395746147357924
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +398,7 @@ MonoBehaviour:
   BulletSpeed: 1
   EnemySpeed: 1
   EnemyBullet: {fileID: 0}
-  Player: {fileID: 375484439}
+  Player: {fileID: 1292261786}
   Health: 10
   bShouldMove: 0
   bShouldRange: 0
