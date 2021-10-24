@@ -37,7 +37,29 @@ public class AudioManager : MonoBehaviour
 	}
 	private void Start()
 	{
-		Play("Menu");
+		int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+		LevelSpecificPlay(sceneIndex);
+	}
+	private void LevelSpecificPlay(int sceneIndex)
+	{
+		switch(sceneIndex)
+		{
+			case 1:
+				Play("level-1");
+				break;
+			case 2:
+				Play("level-2");
+				break;
+			case 3:
+				Play("level-3");
+				break;
+			case 4:
+				Play("level-4");
+				break;
+			case 5:
+				Play("level-5");
+				break;
+		}
 	}
 	
     

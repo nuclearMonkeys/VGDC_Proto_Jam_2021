@@ -48,11 +48,14 @@ public class GameManager : MonoBehaviour
 	}
     public void OnEnemyDeath(int sceneIndex)
 	{
-        DialogueManager dialogue = GameObject.FindWithTag("Canvas").GetComponent<DialogueManager>();
+        GameObject dialogue = GameObject.Find("Dialogue");
+        dialogue.SetActive(true);
+
+        DialogueManager dialogueManager = dialogue.GetComponent<DialogueManager>();
 
         if (dialogue != null)
         {
-            dialogue.GetConditionLines(SceneManager.GetActiveScene().buildIndex, true);
+            dialogueManager.GetConditionLines(SceneManager.GetActiveScene().buildIndex, true);
         }
         else
             Debug.LogWarning("DialogueManager is null");
