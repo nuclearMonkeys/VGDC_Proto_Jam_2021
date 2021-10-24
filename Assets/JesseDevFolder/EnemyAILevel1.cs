@@ -45,7 +45,7 @@ public class EnemyAILevel1 : EnemyAIBase
         if (!bIsRanging && !bIsMeleeing && !bPlayerInRange)
         {
             Animator.Play("WalkAnim");
-
+            enableColliderFalse();
             if (Player)
             {
                 Vector3 targ = Player.transform.position;
