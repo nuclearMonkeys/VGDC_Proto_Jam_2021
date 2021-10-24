@@ -60,17 +60,14 @@ public class PlayerShooting : MonoBehaviour
         yield return new WaitForSeconds(fireRate);
         canFire = true;
     }
-
+    
     IEnumerator slashEnumerator() 
     {
         while (true) 
         {
             if (Input.GetButtonDown("Fire2")) 
             {
-                //randomly select which sword swing to get
-                int rand = Random.Range(0, 2);
-                if (rand == 0) AudioManager.instance.Play("sword-swing1");
-                //else AudioManager.instance.PlaySound("sword-swing2.mp3");
+                PlaySwordAudio();
 
                 playerSword.SetActive(true);
                 currentCombo++;
@@ -100,5 +97,23 @@ public class PlayerShooting : MonoBehaviour
             yield return null;
             playerSword.SetActive(false);
         }
+    }
+    private void PlaySwordAudio()
+    {
+        //randomly select which sword swing to get
+        int rand = Random.Range(0, 3);
+        switch (rand)
+        {
+            case 0:
+                AudioManager.instance.Play("sword-swing1");
+                break;
+            case 1:
+                AudioManager.instance.Play("sword-swing2");
+                break;
+            case 2:
+                AudioManager.instance.Play("sword-swing3");
+                break;
+        }
+
     }
 }
