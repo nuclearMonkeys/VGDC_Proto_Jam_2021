@@ -23,6 +23,8 @@ public class PlayerShooting : MonoBehaviour
 
     float lastTime;
 
+    public Animator Animator;
+
     // private enemyBehavior damaging;
     // private weaponInfo useClip;
 
@@ -37,6 +39,10 @@ public class PlayerShooting : MonoBehaviour
             Fire();
         // if (Input.GetAxisRaw("Fire2") != 0)
         //     Slash();
+        if (canFire == true && !playerSword.activeSelf)
+        {
+            Animator.Play("PlayerWalk");
+        }
     }
 
     public void Fire() 
@@ -54,6 +60,7 @@ public class PlayerShooting : MonoBehaviour
     IEnumerator fireEnumerator() 
     {
         AudioManager.instance.Play("blaster");
+        Animator.Play("PlayerShoot");
         BaseBullet bullet = Instantiate(bulletPrefab, firingPoint);
         bullet.transform.SetParent(null);
         canFire = false;
@@ -68,7 +75,8 @@ public class PlayerShooting : MonoBehaviour
             if (Input.GetButtonDown("Fire2")) 
             {
                 PlaySwordAudio();
-
+                Animator.Play("LeftSlash");
+                playerSword.GetComponent<SwordDamagePlayer>().bHasDamaged = false;
                 playerSword.SetActive(true);
                 currentCombo++;
                 Debug.Log("Attack" + currentCombo);
@@ -80,6 +88,8 @@ public class PlayerShooting : MonoBehaviour
                 {
                     if (Input.GetButtonDown("Fire2"))  
                     {
+                        Animator.Play("PlayerRightSlash");
+                        playerSword.GetComponent< SwordDamagePlayer>().bHasDamaged = false;
                         playerSword.SetActive(true);
                         currentCombo++;
                         Debug.Log("Attack" + currentCombo);
