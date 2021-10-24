@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI char_name = null; // Character's name
     [SerializeField] private TextMeshProUGUI char_line = null; // Character's dialogue line
+    [SerializeField] private float time = 0.05f;
     
     [SerializeField] private TextAsset file = null; // File with character dialogue
     private string[] lines = new string[128]; // Array of all the lines
@@ -47,11 +48,19 @@ public class DialogueManager : MonoBehaviour
     
     private IEnumerator UpdateCharacterLine (string line)
     {
+        for (int i = 0; i < line.Length; i++)
+        {
+            char_line.text = line.Substring(0, i);
+            if (Input.GetKeyDown(KeyCode.Space)) break;
+            yield return new WaitForSeconds(time);
+        }
+        char_line.text = line;
+        yield return new WaitForSeconds(time);
+        
         do
         {
-            char_line.text = line;
             yield return null;
-        } while (!Input.GetKeyDown(KeyCode.Mouse0));
+        } while (!Input.GetKeyDown(KeyCode.Space));
     }
     
     private void ClearDialogue ()
