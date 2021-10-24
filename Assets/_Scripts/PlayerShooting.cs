@@ -53,6 +53,7 @@ public class PlayerShooting : MonoBehaviour
 
     IEnumerator fireEnumerator() 
     {
+        AudioManager.instance.PlaySound("blaster.mp3");
         BaseBullet bullet = Instantiate(bulletPrefab, firingPoint);
         bullet.transform.SetParent(null);
         canFire = false;
@@ -66,6 +67,11 @@ public class PlayerShooting : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire2")) 
             {
+                //randomly select which sword swing to get
+                int rand = Random.Range(0, 2);
+                if (rand == 0) AudioManager.instance.PlaySound("sword-swing1.mp3");
+                else AudioManager.instance.PlaySound("sword-swing2.mp3");
+
                 playerSword.SetActive(true);
                 currentCombo++;
                 Debug.Log("Attack" + currentCombo);
