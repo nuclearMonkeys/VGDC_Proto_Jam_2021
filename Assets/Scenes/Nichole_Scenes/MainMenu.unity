@@ -1106,6 +1106,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1485744930
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1837428628332781300, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299155250828657093, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299155250828657093, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.30284432
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299155250828657093, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.32838464
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299155250828657093, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.2204195
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299155250828657093, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299155250828657093, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299155250828657093, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299155250828657093, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299155250828657093, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299155250828657093, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299155250828657093, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630439792924775542, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 0.7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
 --- !u!1 &1510508724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,6 +1396,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1823186670}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Menu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1823186670}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: level-1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1754686424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1506,6 +1591,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760483088}
   m_CullTransparentMesh: 1
+--- !u!114 &1823186670 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8630439792924775542, guid: 2bb776f05537e394d851314e0fe1e8b3, type: 3}
+  m_PrefabInstance: {fileID: 1485744930}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4063870aea067118f870c8aa98dd2a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1900495968
 GameObject:
   m_ObjectHideFlags: 0

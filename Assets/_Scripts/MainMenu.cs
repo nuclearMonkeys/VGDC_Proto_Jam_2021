@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene(next_scene_index);
+        
     }
     
     // Closes the application
