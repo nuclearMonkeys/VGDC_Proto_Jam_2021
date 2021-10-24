@@ -1,4 +1,6 @@
 using UnityEngine.Audio;
+using System.Collections;
+using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +10,8 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
 
 	public static AudioManager instance;
+
+	private float fadeDuration = 0.6f;
 
 	private void Awake()
 	{
@@ -68,6 +72,54 @@ public class AudioManager : MonoBehaviour
 		else
 			Debug.LogWarning("audioclip " + name + " is NULL");
 	}
+	public void OnTransitionScene(string fadeOut,string fadeIn)
+	{
+		
+		StartCoroutine(FadeOut(fadeOut, fadeDuration));
+		StartCoroutine(FadeIn(fadeIn, fadeDuration));
+	}
+	public void FadeIn(string name)
+	{
+		StartCoroutine(FadeIn(name, fadeDuration));
+	}
+	public void FadeOut(string name)
+	{
+		StartCoroutine(FadeOut(name, fadeDuration));
+	}
 	
+	public IEnumerator FadeOut(string name, float FadeTime)
+	{
+		Sound s = Array.Find(sounds, sound => sound.name == name);
+
+		if(s != null)
+		{
+			float startVolume = s.source.volume;
+			while(s.source.volume > 0)
+			{
+				s.source.volume -= startVolume * Time.deltaTime / FadeTime;
+				yield return null;
+			}
+			s.source.Stop();
+		}
+	}
+
+	public IEnumerator FadeIn(string name, float FadeTime)
+	{
+		Sound s = Array.Find(sounds, sound => sound.name == name);
+
+		if (s != null)
+		{
+			s.source.Play();
+			s.source.volume = 0f;
+
+			while(s.source.volume < 1)
+			{
+				s.source.volume += Time.deltaTime / FadeTime;
+				yield return null;
+			}
+		}
+
+	}
+
 
 }
