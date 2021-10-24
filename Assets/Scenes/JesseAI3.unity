@@ -3451,6 +3451,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350161, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350161, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: slashComboLimit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350161, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: slashComboCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -5719,7 +5731,7 @@ MonoBehaviour:
   EnemySpeed: 10
   EnemyBullet: {fileID: 7959301313896803931, guid: 827cf309a15ca024281d4c9df6050bdd, type: 3}
   Player: {fileID: 559115973}
-  Health: 10
+  Health: 25
   bShouldMove: 0
   bShouldRange: 0
   bShouldMelee: 0
@@ -5775,7 +5787,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &6202791472719695634
 SpriteRenderer:
   m_ObjectHideFlags: 0

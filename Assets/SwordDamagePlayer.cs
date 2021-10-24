@@ -17,13 +17,14 @@ public class SwordDamagePlayer : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        //Debug.Log(collision.gameObject.name);
+        if (collision.tag == "Enemy" && bHasDamaged == false)
         {
             bHasDamaged = true;
 
-            collision.GetComponent<EnemyAIBase>().Damage(2);
+            collision.GetComponent<EnemyAIBase>().Damage(3);
         }
     }
 }

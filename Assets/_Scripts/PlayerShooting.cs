@@ -76,8 +76,8 @@ public class PlayerShooting : MonoBehaviour
             {
                 PlaySwordAudio();
                 Animator.Play("LeftSlash");
-                playerSword.GetComponent<SwordDamagePlayer>().bHasDamaged = false;
                 playerSword.SetActive(true);
+                playerSword.GetComponent<SwordDamagePlayer>().bHasDamaged = false;
                 currentCombo++;
                 Debug.Log("Attack" + currentCombo);
                 lastTime = Time.time;
@@ -89,8 +89,8 @@ public class PlayerShooting : MonoBehaviour
                     if (Input.GetButtonDown("Fire2"))  
                     {
                         Animator.Play("PlayerRightSlash");
-                        playerSword.GetComponent< SwordDamagePlayer>().bHasDamaged = false;
                         playerSword.SetActive(true);
+                        playerSword.GetComponent<SwordDamagePlayer>().bHasDamaged = false;
                         currentCombo++;
                         Debug.Log("Attack" + currentCombo);
                         lastTime = Time.time;

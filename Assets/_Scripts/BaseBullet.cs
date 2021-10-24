@@ -36,6 +36,23 @@ public class BaseBullet : MonoBehaviour
         }
         if (other.CompareTag("Player"))
             return;
-        Destroy(this.gameObject);
+
+        if (other.CompareTag("Deflect"))
+        {
+            Vector3 newDir = (other.gameObject.transform.position - gameObject.transform.position);
+            newDir.Normalize();
+            newDir *= -1;
+            SetDirection(newDir);
+            if (!body)
+            {
+                body = GetComponent<Rigidbody2D>();
+                body.gravityScale = 0;
+            }
+            body.velocity = transform.right * speed * 3.0f;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
