@@ -7909,13 +7909,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1304477087964852386, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1304477088212350155, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350161, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: fireRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350161, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: slashComboLimit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304477088212350161, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
+      propertyPath: slashComboCooldown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
       propertyPath: m_RootOrder
@@ -7960,10 +7968,6 @@ PrefabInstance:
     - target: {fileID: 1304477088212350164, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 1304477088212350166, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}
-      propertyPath: m_Constraints
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89e66c3eb7e11a34e8d90274b9776c50, type: 3}

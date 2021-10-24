@@ -46,17 +46,21 @@ public class EnemyAILevel1 : EnemyAIBase
         {
             Animator.Play("WalkAnim");
 
-            Vector3 targ = Player.transform.position;
-            targ.z = 0f;
+            if (Player)
+            {
+                Vector3 targ = Player.transform.position;
+                targ.z = 0f;
 
-            Vector3 objectPos = transform.position;
-            targ.x = targ.x - objectPos.x;
-            targ.y = targ.y - objectPos.y;
+                Vector3 objectPos = transform.position;
+                targ.x = targ.x - objectPos.x;
+                targ.y = targ.y - objectPos.y;
 
-            float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-            rb2d.velocity = transform.right * EnemySpeed;
+                rb2d.velocity = transform.right * EnemySpeed;
+            }
+
         }
         else
         {

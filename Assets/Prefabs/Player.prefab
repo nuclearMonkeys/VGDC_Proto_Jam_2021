@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1304477087964852396}
   - component: {fileID: 1304477087964852387}
   - component: {fileID: 6752131632525936775}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304477087964852386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3, y: -0.0192, z: 0}
+  m_LocalPosition: {x: 1, y: -0.0192, z: 0}
   m_LocalScale: {x: 0.216, y: 1.4764497, z: 1}
   m_Children: []
   m_Father: {fileID: 1304477088212350164}
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -109,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1}
+  m_Size: {x: 4, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &6752131632525936775
 MonoBehaviour:

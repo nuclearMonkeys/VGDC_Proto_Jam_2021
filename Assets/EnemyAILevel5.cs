@@ -191,7 +191,7 @@ public class EnemyAILevel5 : EnemyAIBase
         Vector3 Dir = (Player.transform.position - transform.position);
         Dir.Normalize();
 
-        rb2d.velocity = Dir * EnemySpeed * 1.5f;
+        rb2d.velocity = Dir * EnemySpeed * 5f;
 
     }
 
@@ -214,7 +214,7 @@ public class EnemyAILevel5 : EnemyAIBase
             float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-            rb2d.velocity = transform.right * EnemySpeed * 9.0f;
+            rb2d.velocity = transform.right * EnemySpeed * 10.0f;
 
         }
     }

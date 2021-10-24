@@ -21,13 +21,13 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 7435852595632574929, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
-    - time: 0.6666667
+    - time: 0.41666666
       value: {fileID: 3143153141890181540, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
-    - time: 0.71666664
+    - time: 0.46666667
       value: {fileID: 3143153141890181540, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
-    - time: 0.75
+    - time: 0.5
       value: {fileID: 7435852595632574929, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
-    - time: 0.9166667
+    - time: 0.6666667
       value: {fileID: 7435852595632574929, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
     attribute: m_Sprite
     path: 
@@ -58,7 +58,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.93333334
+    m_StopTime: 0.68333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -92,21 +92,21 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.75
+  - time: 0.5
     functionName: fireBulletRing
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.75
+  - time: 0.5
     functionName: TeleportToPoint
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.9166667
+  - time: 0.6666667
     functionName: EndRange
     data: 
     objectReferenceParameter: {fileID: 0}

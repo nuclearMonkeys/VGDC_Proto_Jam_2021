@@ -21,21 +21,21 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -487993934302329666, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
+    - time: 0.11666667
+      value: {fileID: -487993934302329666, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
+    - time: 0.13333334
+      value: {fileID: -3571051550503534695, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
+    - time: 0.15
+      value: {fileID: -3571051550503534695, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
     - time: 0.16666667
-      value: {fileID: -487993934302329666, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
-    - time: 0.18333334
-      value: {fileID: -3571051550503534695, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
-    - time: 0.2
-      value: {fileID: -3571051550503534695, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
-    - time: 0.21666667
       value: {fileID: -7449559864542234698, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
-    - time: 0.6
-      value: {fileID: -7449559864542234698, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
-    - time: 0.6166667
-      value: {fileID: -3571051550503534695, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
     - time: 0.6333333
+      value: {fileID: -7449559864542234698, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
+    - time: 0.65
+      value: {fileID: -3571051550503534695, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
+    - time: 0.6666667
       value: {fileID: -487993934302329666, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
-    - time: 0.75
+    - time: 0.78333336
       value: {fileID: 7435852595632574929, guid: adf610cbde1c0fc42aa5fa30d0a74052, type: 3}
     attribute: m_Sprite
     path: 
@@ -70,7 +70,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.76666665
+    m_StopTime: 0.8
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -97,28 +97,28 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.16666667
+  - time: 0.11666667
     functionName: ChargeAtPlayer
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6333333
+  - time: 0.6666667
     functionName: ZeroVector
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6333333
+  - time: 0.6666667
     functionName: enableColliderFalse
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.75
+  - time: 0.78333336
     functionName: EndMelee
     data: 
     objectReferenceParameter: {fileID: 0}
