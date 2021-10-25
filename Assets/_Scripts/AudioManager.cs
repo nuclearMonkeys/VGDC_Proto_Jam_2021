@@ -94,11 +94,29 @@ public class AudioManager : MonoBehaviour
 		else
 			Debug.LogWarning("audioclip " + name + " is NULL");
 	}
-	public void OnTransitionScene(string fadeOut,string fadeIn)
+	public void OnTransitionScene(int currentSceneIndex,int nextSceneIndex)
 	{
+		switch (currentSceneIndex)
+		{
+			case 1:
+				StartCoroutine(FadeOut("level-1", fadeDuration));
+				StartCoroutine(FadeIn("level-2", fadeDuration));
+				break;
+			case 2:
+				StartCoroutine(FadeOut("level-2", fadeDuration));
+				StartCoroutine(FadeIn("level-3", fadeDuration));
+				break;
+			case 3:
+				StartCoroutine(FadeOut("level-3", fadeDuration));
+				StartCoroutine(FadeIn("level-4", fadeDuration));
+				break;
+			case 4:
+				StartCoroutine(FadeOut("level-4", fadeDuration));
+				StartCoroutine(FadeIn("level-5", fadeDuration));
+				break;
+			
+		} 
 		
-		StartCoroutine(FadeOut(fadeOut, fadeDuration));
-		StartCoroutine(FadeIn(fadeIn, fadeDuration));
 	}
 	public void FadeIn(string name)
 	{
