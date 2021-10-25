@@ -18,24 +18,28 @@ public class EnemyAILevel3 : EnemyAIBase
     // Update is called once per frame
     void Update()
     {
-        //if player close
-        if (currentAttackTime >= attackInterval)
+        if (bReadytoFight)
         {
-            currentAttackTime = 0.0f;
-            if (TeleportCount <= 0)
+            //if player close
+            if (currentAttackTime >= attackInterval)
             {
-                //Debug.Log("Hello");
-                
-                MeleeAttack();
-                // do melee
+                currentAttackTime = 0.0f;
+                if (TeleportCount <= 0)
+                {
+                    //Debug.Log("Hello");
+
+                    MeleeAttack();
+                    // do melee
+                }
+                else
+                {
+                    // do range
+                    RangeAttack();
+                }
             }
-            else
-            {
-                // do range
-                RangeAttack();
-            }
+            currentAttackTime += Time.deltaTime;
         }
-        currentAttackTime += Time.deltaTime;
+
     }
 
     void RangeAttack()

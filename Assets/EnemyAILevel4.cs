@@ -6,7 +6,7 @@ public class EnemyAILevel4 : EnemyAIBase
 {
     public GameObject MeleeCollider;
     public List<GameObject> TeleportPoints = new List<GameObject>();
-    public int targetIndex = 1;
+    public int targetIndex = -1;
     int prevIndex = 0;
     public GameObject EnemyBulletRing;
     public bool bDoMelee = false;
@@ -14,41 +14,48 @@ public class EnemyAILevel4 : EnemyAIBase
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        MakeNewPoint();
-        MoveToPoint();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Mathf.Abs(Vector3.Distance(TeleportPoints[targetIndex].transform.position, transform.position)) <= 0.5f)
+        if (bReadytoFight)
         {
-            MakeNewPoint();
-           
-        }
-        MoveToPoint();
-        setRotation();
-        //if player close
-        if (currentAttackTime >= attackInterval)
-        {
-            
-
-            currentAttackTime = 0.0f;
-            if (bDoMelee)
+            if (targetIndex == -1)
             {
-                MeleeAttack();
-                
+                MakeNewPoint();
+                MoveToPoint();
             }
-            else
+            if (Mathf.Abs(Vector3.Distance(TeleportPoints[targetIndex].transform.position, transform.position)) <= 0.5f)
             {
-                // do range
-                RangeAttack();
-            }
+                MakeNewPoint();
 
-           
+            }
+            MoveToPoint();
+            setRotation();
+            //if player close
+            if (currentAttackTime >= attackInterval)
+            {
+
+
+                currentAttackTime = 0.0f;
+                if (bDoMelee)
+                {
+                    MeleeAttack();
+
+                }
+                else
+                {
+                    // do range
+                    RangeAttack();
+                }
+
+
+            }
+            currentAttackTime += Time.deltaTime;
         }
-        currentAttackTime += Time.deltaTime;
+
     }
 
     void RangeAttack()
