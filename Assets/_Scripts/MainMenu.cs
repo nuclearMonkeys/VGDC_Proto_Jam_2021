@@ -42,6 +42,8 @@ public class MainMenu : MonoBehaviour
     
     public void ChangeVolume()
     {
-        audio.SetVolume(slider.value);
+       // audio.SetVolume(slider.value);
+        AudioManager.instance.SettingsButton(slider.value);
+
     }
 }

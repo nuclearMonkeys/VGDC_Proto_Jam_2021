@@ -114,10 +114,13 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 5)
         {
+            AudioManager.instance.OnTransitionScene(0);
             SceneManager.LoadScene(0);
         }
         else
         {
+            AudioManager.instance.OnTransitionScene(SceneManager.GetActiveScene().buildIndex);
+
             bFirstTimeInLevel = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

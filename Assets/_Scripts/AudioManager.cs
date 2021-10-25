@@ -94,11 +94,24 @@ public class AudioManager : MonoBehaviour
 		else
 			Debug.LogWarning("audioclip " + name + " is NULL");
 	}
+	public void SettingsButton(float volume)
+	{
+		foreach (Sound s in sounds)
+		{
+			s.source = gameObject.AddComponent<AudioSource>();
+			s.source.volume = volume;
+
+		}
+	}
 	public void OnTransitionScene(int currentSceneIndex)
 	{
 
 		switch (currentSceneIndex)
 		{
+			case 0:
+				StartCoroutine(FadeOut("level-5", fadeDuration));
+				StartCoroutine(FadeIn("Menu", fadeDuration));
+				break;
 			case 1:
 				StartCoroutine(FadeOut("level-1", fadeDuration));
 				StartCoroutine(FadeIn("level-2", fadeDuration));
