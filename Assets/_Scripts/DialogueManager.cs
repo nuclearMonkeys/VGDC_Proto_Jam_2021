@@ -164,6 +164,8 @@ public class DialogueManager : MonoBehaviour
         }
         ClearDialogue();
         ShowDialogueBox(false);
+        FindObjectOfType<PlayerShooting>().bReadytoFight = true;
+        FindObjectOfType<PlayerMovement>().bReadytoFight = true;
         FindObjectOfType<EnemyAIBase>().bReadytoFight = true;
     }
     

@@ -14,9 +14,13 @@ public class PlayerRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mouseDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        mouseAngle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg;
-        rotator = Quaternion.AngleAxis(mouseAngle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotator, rotationSpeed * Time.deltaTime);
+        if (FindObjectOfType<PlayerMovement>().bReadytoFight)
+        {
+            mouseDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            mouseAngle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg;
+            rotator = Quaternion.AngleAxis(mouseAngle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotator, rotationSpeed * Time.deltaTime);
+        }
+
     }
 }

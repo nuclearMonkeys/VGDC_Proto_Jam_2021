@@ -24,7 +24,7 @@ public class PlayerShooting : MonoBehaviour
     float lastTime;
 
     public Animator Animator;
-
+    public bool bReadytoFight = true;
     // private enemyBehavior damaging;
     // private weaponInfo useClip;
 
@@ -35,14 +35,18 @@ public class PlayerShooting : MonoBehaviour
 
     private void Update() 
     {
-        if (Input.GetAxisRaw("Fire1") != 0) 
-            Fire();
-        // if (Input.GetAxisRaw("Fire2") != 0)
-        //     Slash();
-        if (canFire == true && !playerSword.activeSelf)
+        if (bReadytoFight)
         {
-            Animator.Play("PlayerWalk");
+            if (Input.GetAxisRaw("Fire1") != 0)
+                Fire();
+            // if (Input.GetAxisRaw("Fire2") != 0)
+            //     Slash();
+            if (canFire == true && !playerSword.activeSelf)
+            {
+                Animator.Play("PlayerWalk");
+            }
         }
+
     }
 
     public void Fire() 

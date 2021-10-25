@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 15.0f;
     
     private Rigidbody2D body;
-
+    public bool bReadytoFight = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,18 +21,22 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerX = 0;
-        playerY = 0;
-        if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f) 
+        if (bReadytoFight)
         {
-            playerY = Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime;
-        }
-        if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5) 
-        {
-            playerX = Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime;
+            playerX = 0;
+            playerY = 0;
+            if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
+            {
+                playerY = Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime;
+            }
+            if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5)
+            {
+                playerX = Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime;
+            }
+
+            body.velocity = new Vector2(playerX, playerY).normalized * moveSpeed;
         }
 
-        body.velocity = new Vector2(playerX , playerY).normalized * moveSpeed;
 
     }
 }

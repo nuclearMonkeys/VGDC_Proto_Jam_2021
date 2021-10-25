@@ -88,9 +88,13 @@ public class GameManager : MonoBehaviour
         {
             DialogueManager.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
             FindObjectOfType<EnemyAIBase>().bReadytoFight = false;
+            FindObjectOfType<PlayerShooting>().bReadytoFight = false;
+            FindObjectOfType<PlayerMovement>().bReadytoFight = false;
         }
         else
         {
+            FindObjectOfType<PlayerShooting>().bReadytoFight = true;
+            FindObjectOfType<PlayerMovement>().bReadytoFight = true;
             FindObjectOfType<EnemyAIBase>().bReadytoFight = true;
         }
 
