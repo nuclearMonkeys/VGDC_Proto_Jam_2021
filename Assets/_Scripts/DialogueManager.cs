@@ -48,7 +48,7 @@ public class DialogueManager : MonoBehaviour
 
     public void Start()
     {
-        //GameManager.Instance.StartScene();
+       
     }
 
     //---------------------------------------------------
@@ -140,7 +140,7 @@ public class DialogueManager : MonoBehaviour
     // Count from 0
     public IEnumerator GetLines(int level)
     {
-        FindObjectOfType<EnemyAIBase>().bReadytoFight = false;
+        //FindObjectOfType<EnemyAIBase>().bReadytoFight = false;
         ShowDialogueBox(true);
         
         // Error-checking

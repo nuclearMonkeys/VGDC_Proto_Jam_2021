@@ -22,8 +22,13 @@ public class GameManager : MonoBehaviour
             return;
         }
 	}
-    
-	public void UpgradePlayer(float newPlayerFireRate, float newPlayerSlashRate, int newPlayerSlashComboLimit = 1) 
+
+    private void Start()
+    {
+        GameManager.Instance.StartScene();
+    }
+
+    public void UpgradePlayer(float newPlayerFireRate, float newPlayerSlashRate, int newPlayerSlashComboLimit = 1) 
     {
         PlayerShooting playerShooting = player.GetComponent<PlayerShooting>();
         playerShooting.fireRate = newPlayerFireRate;
@@ -74,10 +79,21 @@ public class GameManager : MonoBehaviour
     {
         GameObject dialogue = GameObject.Find("Dialogue");
         //DialogueManager.Instance.gameObject
-        DialogueManager.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+       
         //dialogue.SetActive(true);
 
         DialogueManager dialogueManager = DialogueManager.Instance.gameObject.GetComponent<DialogueManager>();
+
+        if (bFirstTimeInLevel)
+        {
+            DialogueManager.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            FindObjectOfType<EnemyAIBase>().bReadytoFight = false;
+        }
+        else
+        {
+            FindObjectOfType<EnemyAIBase>().bReadytoFight = true;
+        }
+
 
         if (DialogueManager.Instance != null && bFirstTimeInLevel)
         {
@@ -90,12 +106,23 @@ public class GameManager : MonoBehaviour
 
     public void RestartScene()
     {
+        bFirstTimeInLevel = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void NextScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            bFirstTimeInLevel = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+       
     }
     
 }

@@ -19,22 +19,26 @@ public class EnemyAILevel5 : EnemyAIBase
     // Update is called once per frame
     void Update()
     {
-        //if player close
-        if (currentAttackTime >= attackInterval)
+        if (bReadytoFight)
         {
-            currentAttackTime = 0.0f;
-            if (bPlayerInRange)
+            //if player close
+            if (currentAttackTime >= attackInterval)
             {
-                MeleeAttack();
-                // do melee
+                currentAttackTime = 0.0f;
+                if (bPlayerInRange)
+                {
+                    MeleeAttack();
+                    // do melee
+                }
+                else
+                {
+                    // do range
+                    RangeAttack();
+                }
             }
-            else
-            {
-                // do range
-                RangeAttack();
-            }
+            currentAttackTime += Time.deltaTime;
         }
-        currentAttackTime += Time.deltaTime;
+
 
 
 
@@ -42,26 +46,30 @@ public class EnemyAILevel5 : EnemyAIBase
 
     private void FixedUpdate()
     {
-        if (!bIsRanging && !bIsMeleeing && !bPlayerInRange && Player)
+        if (bReadytoFight)
         {
-            Animator.Play("WalkAnimAI5");
+            if (!bIsRanging && !bIsMeleeing && !bPlayerInRange && Player)
+            {
+                Animator.Play("WalkAnimAI5");
 
-            Vector3 targ = Player.transform.position;
-            targ.z = 0f;
+                Vector3 targ = Player.transform.position;
+                targ.z = 0f;
 
-            Vector3 objectPos = transform.position;
-            targ.x = targ.x - objectPos.x;
-            targ.y = targ.y - objectPos.y;
+                Vector3 objectPos = transform.position;
+                targ.x = targ.x - objectPos.x;
+                targ.y = targ.y - objectPos.y;
 
-            float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-            rb2d.velocity = transform.right * EnemySpeed;
+                rb2d.velocity = transform.right * EnemySpeed;
+            }
+            else
+            {
+                //rb2d.velocity = Vector2.zero;
+            }
         }
-        else
-        {
-            //rb2d.velocity = Vector2.zero;
-        }
+
     }
     void RangeAttack()
     {
