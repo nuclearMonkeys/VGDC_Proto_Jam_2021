@@ -94,8 +94,9 @@ public class AudioManager : MonoBehaviour
 		else
 			Debug.LogWarning("audioclip " + name + " is NULL");
 	}
-	public void OnTransitionScene(int currentSceneIndex,int nextSceneIndex)
+	public void OnTransitionScene(int currentSceneIndex)
 	{
+
 		switch (currentSceneIndex)
 		{
 			case 1:
