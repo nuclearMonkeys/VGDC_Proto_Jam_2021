@@ -27,6 +27,7 @@ public class EnemyBulletRing : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            GameManager.Instance.OnPlayerDeath();
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

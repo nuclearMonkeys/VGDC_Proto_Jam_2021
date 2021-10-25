@@ -21,6 +21,7 @@ public class MeleeHit : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerMovement>())
         {
             AudioManager.instance.Play("impact");
+            GameManager.Instance.OnPlayerDeath();
             Destroy(collision.gameObject);
         }
     }

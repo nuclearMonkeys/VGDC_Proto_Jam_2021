@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 abstract public class EnemyAIBase : MonoBehaviour
 {
     public float attackInterval = 1.0f;
@@ -25,6 +25,8 @@ abstract public class EnemyAIBase : MonoBehaviour
 
     public Animator Animator;
     public GameObject BloodPS;
+
+    public bool bReadytoFight = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +53,7 @@ abstract public class EnemyAIBase : MonoBehaviour
     public void Kill()
     {
         //do shit
-
+        GameManager.Instance.OnEnemyDeath(SceneManager.GetActiveScene().buildIndex + 1);
         EnemyBullet[] bullets = FindObjectsOfType<EnemyBullet>();
         EnemyBulletRing[] bulletRings = FindObjectsOfType<EnemyBulletRing>();
 

@@ -8,10 +8,14 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameObject player;
 
+    public bool bFirstTimeInLevel = true;
 	private void Awake()
 	{
         if (Instance == null)
+        {
             Instance = this;
+            DontDestroyOnLoad(this);
+        }
         else
         { 
             Destroy(gameObject);
@@ -35,13 +39,15 @@ public class GameManager : MonoBehaviour
 	}
     public void OnPlayerDeath()
 	{
-
+        bFirstTimeInLevel = false;
+        
         //when player dies  display the lose condition dialogue according to sceneIndex
         DialogueManager dialogue = GameObject.FindWithTag("Canvas").GetComponent<DialogueManager>();
-
+        //Debug.Log("fuk u");
+        
         if (dialogue != null)
         {
-            dialogue.GetConditionLines(SceneManager.GetActiveScene().buildIndex, false);
+            StartCoroutine(dialogue.GetConditionLines(SceneManager.GetActiveScene().buildIndex, false));
         }
         else
             Debug.LogWarning("DialogueManager is null");
@@ -49,17 +55,47 @@ public class GameManager : MonoBehaviour
     public void OnEnemyDeath(int sceneIndex)
 	{
         GameObject dialogue = GameObject.Find("Dialogue");
-        dialogue.SetActive(true);
+
+        dialogue.transform.GetChild(0).gameObject.SetActive(true);
+        //dialogue.SetActive(true);
 
         DialogueManager dialogueManager = dialogue.GetComponent<DialogueManager>();
-
+       
         if (dialogue != null)
         {
-            dialogueManager.GetConditionLines(SceneManager.GetActiveScene().buildIndex, true);
+            StartCoroutine(dialogueManager.GetConditionLines(SceneManager.GetActiveScene().buildIndex, true));
         }
         else
             Debug.LogWarning("DialogueManager is null");
         //play the UI dialogue for win condition
+    }
+
+    public void StartScene()
+    {
+        GameObject dialogue = GameObject.Find("Dialogue");
+        //DialogueManager.Instance.gameObject
+        DialogueManager.Instance.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        //dialogue.SetActive(true);
+
+        DialogueManager dialogueManager = DialogueManager.Instance.gameObject.GetComponent<DialogueManager>();
+
+        if (DialogueManager.Instance != null && bFirstTimeInLevel)
+        {
+            StartCoroutine(dialogueManager.GetLines(SceneManager.GetActiveScene().buildIndex));
+        }
+        else
+            Debug.LogWarning("DialogueManager is null");
+        //play the UI dialogue for win condition
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void NextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     
 }

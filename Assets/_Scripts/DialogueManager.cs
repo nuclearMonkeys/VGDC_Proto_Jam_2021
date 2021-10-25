@@ -8,6 +8,9 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+
+    public static DialogueManager Instance;
+
     [SerializeField] private TextMeshProUGUI char_name = null; // Character's name
     [SerializeField] private TextMeshProUGUI char_line = null; // Character's dialogue line
     [SerializeField] private TextMeshProUGUI input_reminder = null; // Input Reminder
@@ -25,17 +28,35 @@ public class DialogueManager : MonoBehaviour
     private Regex lose_regex = new Regex("^\\(LOSE\\): (?'dialogue'.*)$", RegexOptions.Compiled);
     private Regex win_regex = new Regex("^\\(WIN\\): (?'dialogue'.*)$", RegexOptions.Compiled);
     
+
     public void Awake()
     {
-        lines = GetLinesFromFile(file);
+        if (Instance == null)
+        {
+            Instance = this;
+            lines = GetLinesFromFile(file);
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+      
     }
-    
+
+    public void Start()
+    {
+        //GameManager.Instance.StartScene();
+    }
+
     //---------------------------------------------------
     // UI FUNCTIONS
     //---------------------------------------------------
     public void ShowDialogueBox(bool show)
     {
-        this.gameObject.SetActive(show);
+        gameObject.transform.GetChild(0).gameObject.SetActive(show);
     }
     
     public void ShowInputReminder(bool show)
@@ -49,9 +70,11 @@ public class DialogueManager : MonoBehaviour
         char_name.text = name;
     }
     
-    private IEnumerator UpdateCharacterLine (string line)
+    private IEnumerator UpdateCharacterLine (string line, int sceneAction)
     {
         ShowInputReminder(false);
+
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
         for (int i = 0; i < line.Length; i++)
         {
             char_line.text = line.Substring(0, i);
@@ -65,6 +88,27 @@ public class DialogueManager : MonoBehaviour
         {
             yield return null;
         } while (!Input.GetKeyDown(KeyCode.Space));
+
+        //nothing
+        //player win
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        if (sceneAction == 0)
+        {
+           
+            //FindObjectOfType<EnemyAIBase>().bReadytoFight = true;
+        }
+        else if (sceneAction == 1)
+        {
+            GameManager.Instance.bFirstTimeInLevel = true;
+            GameManager.Instance.NextScene();
+
+        }
+        //enemy win
+        else if (sceneAction == 2)
+        {
+            GameManager.Instance.RestartScene();
+        }
+
     }
     
     private void ClearDialogue ()
@@ -86,6 +130,8 @@ public class DialogueManager : MonoBehaviour
     //---------------------------------------------------
     private string FindRegexMatch (string line, Regex pattern, string group)
     {
+
+
         if (!pattern.IsMatch(line)) return "";
         GroupCollection groups = pattern.Match(line).Groups;
         return groups[group].Value;
@@ -94,6 +140,7 @@ public class DialogueManager : MonoBehaviour
     // Count from 0
     public IEnumerator GetLines(int level)
     {
+        FindObjectOfType<EnemyAIBase>().bReadytoFight = false;
         ShowDialogueBox(true);
         
         // Error-checking
@@ -113,20 +160,22 @@ public class DialogueManager : MonoBehaviour
             line = FindRegexMatch(lines[i], line_regex, "dialogue");
             
             if (!string.IsNullOrEmpty(name)) UpdateCharacterName(name);
-            if (!string.IsNullOrEmpty(line)) yield return StartCoroutine(UpdateCharacterLine(line));
+            if (!string.IsNullOrEmpty(line)) yield return StartCoroutine(UpdateCharacterLine(line,0));
         }
         ClearDialogue();
         ShowDialogueBox(false);
+        FindObjectOfType<EnemyAIBase>().bReadytoFight = true;
     }
     
     // Count from 1
     public IEnumerator GetConditionLines(int level, bool win)
     {
-        if (level < 0 || level > start_indices.Length - 1) yield break;
         
+        if (level < 0 || level > start_indices.Length - 1) yield break;
+        //boop bop boop bop boop bop boop bop boop bop boop bop 
         ShowDialogueBox(true);
-        if (win) yield return StartCoroutine(UpdateCharacterLine(FindRegexMatch(lines[level - 1], win_regex, "dialogue")));
-        else yield return StartCoroutine(UpdateCharacterLine(FindRegexMatch(lines[level - 1], lose_regex, "dialogue")));
+        if (win) yield return StartCoroutine(UpdateCharacterLine(FindRegexMatch(lines[win_indices[level - 1]], win_regex, "dialogue"),1));
+        else yield return StartCoroutine(UpdateCharacterLine(FindRegexMatch(lines[lose_indices[level - 1]], lose_regex, "dialogue"),2));
         ClearDialogue();
         ShowDialogueBox(false);
     }

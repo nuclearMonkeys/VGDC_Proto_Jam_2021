@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   char_name: {fileID: 5452183162064687764}
   char_line: {fileID: 5452183162153557175}
+  input_reminder: {fileID: 5452183162301873259}
   time: 0.02
   file: {fileID: 4900000, guid: 3b954cd2c2e834441875055f0d8d1375, type: 3}
 --- !u!1 &5452183161977690349
@@ -134,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5452183161977690338
 RectTransform:
   m_ObjectHideFlags: 0
